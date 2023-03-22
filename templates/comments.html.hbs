@@ -1,0 +1,14 @@
+{{#each comments.comments}}
+  <article class="guestbook-comment">
+    <header>
+      <p>Author: {{this.author_name}}</p>
+      <p>
+        Time:
+        <time datetime="2023-2-14 20:00">{{this.date_time}}</time>
+      </p>
+    </header>
+    <p>
+      {{this.message}}
+    </p>
+  </article>
+{{/each}}

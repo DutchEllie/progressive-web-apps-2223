@@ -1,0 +1,6 @@
+[default]
+template_dir = "templates"
+#log_level = "off"
+
+[default.databases.redis_cache]
+url = "redis://localhost:6379"

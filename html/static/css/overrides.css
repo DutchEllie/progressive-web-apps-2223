@@ -1,0 +1,18 @@
+/* 
+This file is for general overrides as well as 
+for media queries that should override specific
+items throughout a page.
+*/
+
+/* #######################
+# ---- #NAVIGATION ----  #
+####################### */
+
+/* This override is here to make sure that the target state for the navigation
+menu is translate 0 
+In the components class the righthanded preference selector has higher
+priority. So this requires either !important or put it in a different layer */
+
+body nav:target {
+  transform: translateX(0%);
+}

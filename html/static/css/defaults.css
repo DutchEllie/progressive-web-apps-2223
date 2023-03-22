@@ -1,0 +1,87 @@
+@font-face {
+	font-family: 'Roboto Flex';
+	src: url("../fonts/RobotoFlex-VariableFont_GRAD\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf");
+}
+
+@font-face {
+	font-family: 'Roboto Slab';
+	src: url("../fonts/RobotoSlab-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+html {
+	--gradient-from: #a2d2ff;
+	--gradient-to: #ffafcc;
+	--gradient-stops: var(--gradient-from), var(--gradient-to);
+	--gradient-background: linear-gradient(to top right, var(--gradient-stops));
+
+	--color-murasaki: #4f284b;
+	
+	--color-text: var(--color-murasaki);
+	--color-link: var(--color-murasaki);
+	--color-list-marker: #60a5fa;
+	--color-input-border: #e5e7eb;
+	--color-input-border-focus: #f490b6;
+	--color-input-text: #3d4046;
+	--color-submit-button: #dbeafe;
+	--color-submit-button-border: #94a3b8;
+	--color-button: #94a3b8;
+
+	--color-comment-background: #fee2e2;
+	--color-comment-header-background: #94a3b8;
+
+	--color-block-background: #fee2e2;
+	--color-block-header-background: #c7d2fe;
+}
+
+body {
+	background: var(--gradient-background);
+	background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6, a, label, p, li, td, button, input, textarea{
+	color: var(--color-text);
+	font-family: 'Roboto Flex';
+
+	/* Copied from prod website */
+	/* font-family: Roboto Flex,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji" */
+}
+
+h1 {
+	font-weight: 500;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+a, a:visited{
+	color: var(--color-link);
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		--gradient-to: #0f1838;
+		--gradient-from: #3c085a;
+
+		/* Old color, changed to the dark block text color */
+		/* --color-text: #cbd5e1; */
+		--color-text: #e2e8f0;
+		--color-link: #bfdbfe;
+
+		--color-submit-button: #334155;
+		--color-button: #1e293b;
+		--color-button-border: #94a3b8;
+
+		--color-comment-background: #1e293b;
+		--color-comment-header-background: #334155;
+
+		--color-block-background:#1e293b;
+		--color-block-header-background: #334155;
+	}
+}
