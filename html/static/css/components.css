@@ -267,7 +267,7 @@ main > article:nth-of-type(2) > section {
   flex-wrap: wrap;
 }
 
-.guestbook > button {
+.guestbook-comments > a {
   background-color: var(--color-button);
   border: none;
   border-radius: 0.75rem;

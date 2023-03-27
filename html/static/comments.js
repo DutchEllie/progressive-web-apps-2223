@@ -5,28 +5,32 @@ let currentPage = 1;
 // Initial value, gets changed in nextButton's EventListener
 let maxPage = -1;
 
-const previousLink = document.querySelector(".guestbook > a:first-of-type");
-const nextLink = document.querySelector(".guestbook > a:nth-of-type(2)");
-
-previousLink.addEventListener("click", async(event) =>  {
-	event.preventDefault();
-	console.log("PAIN");
-
-	let url = previousLink.getAttribute('href');
-	await setComments(url);
+function setEventListeners() {
+	const previousLink = document.querySelector(".guestbook-comments > a:first-of-type");
+	const nextLink = document.querySelector(".guestbook-comments > a:nth-of-type(2)");
 	
-	return false;
-}, false);
-
-nextLink.addEventListener("click", async(event) => {
-	event.preventDefault();
-	console.log("PAIN");
+	previousLink.addEventListener("click", async(event) =>  {
+		event.preventDefault();
+		console.log("PAIN");
+		
+		let url = previousLink.getAttribute('href');
+		await setComments(url);
+		
+		return false;
+	}, false);
 	
-	let url = nextLink.getAttribute('href');
-	await setComments(url);
-
-	return false;
-}, false);
+	nextLink.addEventListener("click", async(event) => {
+		event.preventDefault();
+		console.log("PAIN");
+		
+		let url = nextLink.getAttribute('href');
+		await setComments(url);
+		
+		return false;
+	}, false);
+	
+}
+setEventListeners();
 
 async function setComments(url) {
 	let resp = await fetch(url, {
@@ -34,11 +38,12 @@ async function setComments(url) {
 			callsource: "js"
 		}
 	});
-
+	
 	let data = await resp.text();
 	
-	const guestbookCommentsWrapper = document.querySelector('.guestbook-comments > div');
+	const guestbookCommentsWrapper = document.querySelector('.guestbook-comments');
 	guestbookCommentsWrapper.innerHTML = data;
+	setEventListeners();
 }
 
 async function loadComments(pageSize, pageNumber) {

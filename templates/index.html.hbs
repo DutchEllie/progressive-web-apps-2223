@@ -149,10 +149,9 @@
         <!-- Actual guestbook -->
         {{!-- <button data-href="/comments/{{previous_page}}"><a href="/comments/{{previous_page}}">Previous</a></button>
         <button data-href="/comments/{{next_page}}"><a href="/comments/{{next_page}}" >Next</a></button> --}}
-        <a href="/comments/{{previous_page}}">Previous</a>
-        <a href="/comments/{{next_page}}" >Next</a>
         <section class="guestbook-comments">
-          <div>
+          <a href="/comments/{{previous_page}}">Previous</a>
+          <a href="/comments/{{next_page}}" >Next</a>
             {{#each comments.comments}}
             <article class="guestbook-comment">
               <header>
@@ -169,7 +168,6 @@
               </p>
             </article>
             {{/each}}
-          </div>
         </section>
       </article>
     </main>

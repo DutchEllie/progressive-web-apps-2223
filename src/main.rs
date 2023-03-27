@@ -20,7 +20,7 @@ fn rocket() -> _ {
 	let rocket = rocket::build();
 	rocket
 	.attach(Redis::init())
-	.mount("/", routes![hbs::index, hbs::index_comments, hbs::index_comments_call, hbs::about, hbs::galaxies])
+	.mount("/", routes![hbs::index, hbs::index_comments, hbs::about, hbs::galaxies])
 	.mount("/static", FileServer::from("html/static"))
 	.attach(Template::fairing())
 	//rocket::build().mount("/", FileServer::from(relative!("html")))
