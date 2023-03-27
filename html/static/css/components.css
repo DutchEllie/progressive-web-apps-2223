@@ -267,13 +267,14 @@ main > article:nth-of-type(2) > section {
   flex-wrap: wrap;
 }
 
-.guestbook-comments > a {
+.guestbook > button {
   background-color: var(--color-button);
   border: none;
   border-radius: 0.75rem;
   padding: 0.5rem 1.25rem;
 
   margin-left: 0.65rem;
+  width: fit-content;
 }
 
 body:has(input[value="right"]:checked) main > article:nth-of-type(2) > section {

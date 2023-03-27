@@ -112,7 +112,7 @@
         </section>
       </article>
       <!-- Guestbook section -->
-      <article>
+      <article class="guestbook" >
         <h2>Guestbook</h2>
         <p>
           You can leave any comment you want right here in this guestbook! No
@@ -147,9 +147,11 @@
           <input type="submit" value="Submit" />
         </form>
         <!-- Actual guestbook -->
+        {{!-- <button data-href="/comments/{{previous_page}}"><a href="/comments/{{previous_page}}">Previous</a></button>
+        <button data-href="/comments/{{next_page}}"><a href="/comments/{{next_page}}" >Next</a></button> --}}
+        <a href="/comments/{{previous_page}}">Previous</a>
+        <a href="/comments/{{next_page}}" >Next</a>
         <section class="guestbook-comments">
-          <a href="/comments/{{previous_page}}">Previous</a>
-          <a href="/comments/{{next_page}}">Next</a>
           <div>
             {{#each comments.comments}}
             <article class="guestbook-comment">
