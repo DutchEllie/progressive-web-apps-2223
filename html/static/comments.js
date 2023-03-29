@@ -1,3 +1,14 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('serviceworker.js');
+}
+
+// document.querySelector('#show').addEventListener('click', () => {
+//   const iconUrl = document.querySelector('select').selectedOptions[0].value;
+//   let imgElement = document.createElement('img');
+//   imgElement.src = iconUrl;
+//   document.querySelector('#container').appendChild(imgElement);
+// });
+
 const onloadPageNum = 1;
 const pageSize = 10;
 let currentPage = 1;
