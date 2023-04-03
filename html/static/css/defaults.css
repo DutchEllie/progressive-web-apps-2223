@@ -1,16 +1,19 @@
 @font-face {
 	font-family: 'Roboto Flex';
 	src: url("../fonts/RobotoFlex-VariableFont_GRAD\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf");
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Roboto Slab';
 	src: url("../fonts/RobotoSlab-VariableFont_wght.ttf");
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Montserrat";
 	src: url("../fonts/Montserrat-VariableFont_wght.ttf");
+	font-display: swap;
 }
 
 html {

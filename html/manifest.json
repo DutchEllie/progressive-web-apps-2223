@@ -1,0 +1,17 @@
+{
+    "short_name": "IG 2",
+    "name": "Internetica Galactica 2",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "/favicon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#FFAFCC",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#FFAFCC",
+    "description": "The modern web meets 2000"
+}

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/style.css" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
     <script src="/static/app.js" defer></script>
     <script src="/static/comments.js" defer></script>
     <title>Homepage</title>
@@ -13,7 +14,7 @@
   <body>
     <header>
       <a href="#navigation">
-        <img src="/static/images/icons8-menu.svg" alt="Hamburger menu button" />
+        <img height="30px" width="30px" src="/static/images/icons8-menu.svg" alt="Hamburger menu button" />
       </a>
       <div>
         <img src="/static/images/icon.png" alt="" />
@@ -53,8 +54,8 @@
           Here you will find random shit!
         </p>
         <div>
-          <img src="/static/images/kanata-1.gif" alt="" />
-          <img src="/static/images/kanata-1.gif" alt="" />
+          <img src="/static/images/kanata-1.webp" alt="" />
+          <img src="/static/images/kanata-1.webp" alt="" />
         </div>
       </aside>
       <aside>
@@ -74,7 +75,9 @@
           "Galaxies" page.
         </p>
         <img
-          src="/static/images/rin-2.gif"
+          height="10rem"
+          {{!-- width="160px" --}}
+          src="/static/images/rin-2.webp"
           alt="Gif of vocaloid character Kagamine Rin jumping up and down. Comes from music video 'Nanchoukei Danshi ga Taosenai' by LamazeP"
         />
         <section>
@@ -96,6 +99,8 @@
               <a href="https://drone.dutchellie.nl/DutchEllie/svelte-website"
                 >Drone CI/CD
                 <img
+                  height="20px"
+                  width="91px"
                   src="https://drone.dutchellie.nl/api/badges/DutchEllie/svelte-website/status.svg?ref=refs/heads/main"
                   alt="Build status badge from Drone CI/CD"
               /></a>
