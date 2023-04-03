@@ -1,9 +1,21 @@
 // Based on this example by Google
 // https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js
-var CACHE_VERSION = "20230328082548";
+var CACHE_VERSION = "20230403095219";
 var CACHES = {
 	prefetch: 'prefetch-cache-v' + CACHE_VERSION,
 	runtime: 'runtime'
+}
+
+const updatePreFetchCache = async () => {
+	var urlsToPrefetch = [
+		"/",
+		"/about",
+		"/galaxies",
+	];
+
+	caches.open(CACHES.prefetch)
+		.then(cache => cache.addAll(urlsToPrefetch))
+		// .then(self.skipWaiting())
 }
 
 self.addEventListener('install', event => {
@@ -41,6 +53,7 @@ const putInCache = async (request, response) => {
 const updateCache = async (request) => {
 	const responseFromNetwork = await fetch(request);
 	await putInCache(request, responseFromNetwork.clone());
+	updatePreFetchCache();
 	return responseFromNetwork;
 }
 

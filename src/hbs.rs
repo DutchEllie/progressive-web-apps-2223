@@ -3,7 +3,9 @@ use std::borrow::Cow;
 use crate::elements;
 use crate::Redis;
 use crate::elements::Comments;
+use rocket::futures::io::Cursor;
 use rocket::http::ContentType;
+use rocket::http::hyper::header;
 use rocket::http::hyper::server::Server;
 use rocket::request::{self, Request, Outcome, FromRequest};
 use rocket_db_pools::Connection;
@@ -35,6 +37,23 @@ use rocket::http::Header;
 // 	}
 // }
 
+// #[response(status = 200, content_type = "text/html")]
+// #[derive(rocket::Responder)]
+struct ResponseWithETag {
+	inner: Template,
+	header: ContentType,
+	etag: String
+}
+
+impl<'r> Responder<'r, 'static> for ResponseWithETag {
+	fn respond_to(self, request: &'r Request<'_>) -> Result<'static> {
+			let mut response = self.inner.respond_to(request)?;
+			response.set_header(self.header);
+			response.set_header(Header::new(header::ETAG.to_string(), self.etag));
+			
+			Ok(response)
+	}
+}
 
 pub struct Data(String);
 
@@ -69,6 +88,8 @@ pub async fn index(mut db: Connection<Redis>) -> Template {
 		next_page: 2,
 	};
 
+	// let etag = "d2dd9i20d02d";
+
 	// let response = ServerTimingResponder {
 	// 	inner: Template::render("index", &context),
 	// 	header: rocket::http::ContentType::parse_flexible("html").unwrap(),
@@ -76,6 +97,23 @@ pub async fn index(mut db: Connection<Redis>) -> Template {
 	// };
 	// return response;
 	Template::render("index", &context)
+
+	// let response = ResponseWithETag {
+	// 	inner: Template::render("index", &context),
+	// 	header: ContentType::HTML,
+	// 	etag: etag.to_string()
+	// };
+
+	// response
+
+	
+	// let response = Response::new();
+	// response.set_sized_body(tmpl., body)
+	// return response;
+
+
+	
+
 }
 
 #[get("/comments/<commentpage>")]
