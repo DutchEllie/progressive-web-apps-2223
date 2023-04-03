@@ -48,7 +48,7 @@ const cacheFirst = async (request) => {
 	const responseFromCache = await caches.match(request);
 	if (responseFromCache) {
 		console.log("Responding from cache to request: " + request)
-		// updateCache(request);
+		updateCache(request);
 		return responseFromCache;
 	}
 
