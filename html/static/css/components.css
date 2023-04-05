@@ -84,6 +84,8 @@ main > article > img {
   grid-area: rin;
   height: 10rem;
   border-radius: 0.25rem;
+  width:7em;
+  object-fit:cover;
 }
 
 /* Tech section */
@@ -197,7 +199,7 @@ nav:has(input[value="right"]:checked) > a:first-of-type {
 }
 
 /* Handedness preference */
-nav h5 {
+nav p {
   margin-top: 2rem;
 }
 nav label {
@@ -333,7 +335,7 @@ main > header > h1:hover {
   text-shadow: 5px 5px gray;
 }
 
-main > header > h3 {
+main > header > h2 {
   text-align: center;
   font-family: "Roboto Slab";
   font-weight: 400;

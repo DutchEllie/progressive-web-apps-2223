@@ -140,3 +140,32 @@ async fn get_comments(comment_page: u32, mut db: Connection<Redis>) -> (u32, Com
 	return (max_page, res2);
 }
 ```
+
+## Week 2 - Monday and Tuesday
+
+These days I did not have the most time to work on this project.
+I worked on the ServiceWorker today, regardless.
+I wanted to make most of the app entirely offline, if possible.
+To do this, I made the ServiceWorker prefetch some pages when it first gets installed, then when fetch events happen, it caches all of the content too.
+
+When a user then loads a resource from the server, the ServiceWorker immediately serves from the cache and loads the page in the background to update the cache.
+I intend to provide a seamless experience, so there is no update message on the website.
+
+This is the activity diagram for the ServiceWorker:
+
+![Activity Diagram ServiceWorker](docs/activity%20diagram%20sw.jpg)
+
+## Week 3 - Monday and Tuesday
+
+On Monday, I tried to get a feature working called an ETag on the Rocket Webserver.
+It turns out that Rocket is actually kind of a shit framework and it doesn't have it implemented at all.
+In fact, it implements basically nothing except for Content-Type.
+I gave up on implementing it myself, since it's kind of complicated and it would take way too much time.
+
+Then I wanted to add a cache header to the responses, but naturally, those are not implemented in Rocket.
+Also, I needed to add gzip compression.
+Guess what also isn't documented, or even really findable in their reference?
+Yup, gzip compression.
+Just like everything else, neither their documentation nor reference include anything to do with the things you might want to do, aside from fucking templating pages.
+
+Absolutely pathetic.

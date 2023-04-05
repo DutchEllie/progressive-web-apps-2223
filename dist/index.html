@@ -4,36 +4,27 @@
     <!-- <meta charset="UTF-8" /> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/style.css" />
-    {{!-- <link rel="stylesheet" href="/static/css/reset.css" />
-    <link rel="stylesheet" href="/static/css/defaults.css" />
-    <link rel="stylesheet" href="/static/css/components.css" />
-    <link rel="stylesheet" href="/static/css/utilities.css" />
-    <link rel="stylesheet" href="/static/css/overrides.css" /> --}}
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#FFAFCC">
-    <meta name="description" content="Internetica Galactica 2! Where the moden web meets the old!">
-    <script src="/static/app.js" defer></script>
-    <script src="/static/comments.js" defer></script>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <script src="static/app.js" defer></script>
     <title>Homepage</title>
   </head>
   <body>
     <header>
       <a href="#navigation">
-        <img height="30px" width="30px" src="/static/images/icons8-menu.svg" alt="Hamburger menu button" />
+        <img src="static/images/icons8-menu.svg" alt="Hamburger menu button" />
       </a>
       <div>
-        <img src="/static/images/icon.png" alt="" />
+        <img src="static/images/icon.png" alt="" />
         <h1>Internetica Galactica 2</h1>
         <p>Surviving the rewriting</p>
         <nav id="navigation">
           <a href="#">&times;</a>
           <a href="#" aria-current="page">Home</a>
-          <a href="/about">About</a>
-          <a href="/galaxies">Galaxies</a>
+          <a href="/about.html">About</a>
+          <a href="/galaxies.html">Galaxies</a>
           <div>
-            <p>Which hand do you prefer?</p>
+            <h5>Which hand do you prefer?</h5>
             <label>
               Left
               <input type="radio" name="preferred_hand" value="left" />
@@ -51,7 +42,7 @@
       <!-- Welcome header -->
       <header>
         <h1>Welcome to my website</h1>
-        <h2>The modern web meets 2000</h2>
+        <h3>The modern web meets 2000</h3>
         <hr />
       </header>
       <aside>
@@ -61,12 +52,12 @@
           Here you will find random shit!
         </p>
         <div>
-          <img src="/static/images/kanata-1.webp" alt="" />
-          <img src="/static/images/kanata-1.webp" alt="" />
+          <img src="static/images/kanata-1.gif" alt="" />
+          <img src="static/images/kanata-1.gif" alt="" />
         </div>
       </aside>
       <aside>
-        <img src="/static/images/rin-len1.webp" alt="" />
+        <img src="static/images/rin-len1.webp" alt="" />
         <label for="">
           <input type="checkbox" />
           <!-- yes, i love japanese stuff, how can you tell? -->
@@ -82,9 +73,7 @@
           "Galaxies" page.
         </p>
         <img
-          height="10rem"
-          {{!-- width="160px" --}}
-          src="/static/images/rin-2.webp"
+          src="static/images/rin-2.gif"
           alt="Gif of vocaloid character Kagamine Rin jumping up and down. Comes from music video 'Nanchoukei Danshi ga Taosenai' by LamazeP"
         />
         <section>
@@ -106,8 +95,6 @@
               <a href="https://drone.dutchellie.nl/DutchEllie/svelte-website"
                 >Drone CI/CD
                 <img
-                  height="20px"
-                  width="91px"
                   src="https://drone.dutchellie.nl/api/badges/DutchEllie/svelte-website/status.svg?ref=refs/heads/main"
                   alt="Build status badge from Drone CI/CD"
               /></a>
@@ -124,7 +111,7 @@
         </section>
       </article>
       <!-- Guestbook section -->
-      <article class="guestbook" >
+      <article>
         <h2>Guestbook</h2>
         <p>
           You can leave any comment you want right here in this guestbook! No
@@ -159,27 +146,54 @@
           <input type="submit" value="Submit" />
         </form>
         <!-- Actual guestbook -->
-        {{!-- <button data-href="/comments/{{previous_page}}"><a href="/comments/{{previous_page}}">Previous</a></button>
-        <button data-href="/comments/{{next_page}}"><a href="/comments/{{next_page}}" >Next</a></button> --}}
-        <section class="guestbook-comments">
-          <a href="/comments/{{previous_page}}">Previous</a>
-          <a href="/comments/{{next_page}}" >Next</a>
-            {{#each comments.comments}}
-            <article class="guestbook-comment">
-              <header>
-                <p>Author: {{this.author_name}}</p>
-                <p>
-                  Time:
-                  <time datetime="2023-2-14 20:00"
-                    >{{this.date_time}}</time
-                  >
-                </p>
-              </header>
+        <section>
+          <button>Previous</button>
+          <button>Next</button>
+          <article>
+            <header>
+              <p>Author: sample author</p>
               <p>
-                {{this.message}}
+                Time:
+                <time datetime="2023-2-14 20:00"
+                  >February 14, 2023 at 8:00 PM</time
+                >
               </p>
-            </article>
-            {{/each}}
+            </header>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+              ipsa amet temporibus enim saepe tenetur sapiente vitae rerum.
+            </p>
+          </article>
+          <article>
+            <header>
+              <p>Author: sample author</p>
+              <p>
+                Time:
+                <time datetime="2023-2-14 20:00"
+                  >February 14, 2023 at 8:00 PM</time
+                >
+              </p>
+            </header>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+              ipsa amet temporibus enim saepe tenetur sapiente vitae rerum.
+            </p>
+          </article>
+          <article>
+            <header>
+              <p>Author: sample author</p>
+              <p>
+                Time:
+                <time datetime="2023-2-14 20:00"
+                  >February 14, 2023 at 8:00 PM</time
+                >
+              </p>
+            </header>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
+              ipsa amet temporibus enim saepe tenetur sapiente vitae rerum.
+            </p>
+          </article>
         </section>
       </article>
     </main>
