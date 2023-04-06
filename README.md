@@ -7,6 +7,8 @@ Most of the functionality of the site is still available without JS this way, un
 
 The HTML and CSS are based on the code I wrote for CSS to the rescue.
 
+The website should (sometimes) be online at [pwa.nicecock.eu](https://pwa.nicecock.eu).
+
 ## Week 1 - Monday and Tuesday
 
 I wrote the code for the webserver and made the comment section server side rendered on the first two days.
@@ -169,3 +171,36 @@ Yup, gzip compression.
 Just like everything else, neither their documentation nor reference include anything to do with the things you might want to do, aside from fucking templating pages.
 
 Absolutely pathetic.
+
+### Critical rendering path
+
+I am not entirely 100% sure that that means, but in terms of performance optimisations, I have done some things, like minifying the CSS, optimizing the fonts and enabling cache.
+
+Because of the limitations described earlier, I instead opted to use a reverse proxy.
+I now run the application on a server at home, and then access it through a reverse proxy.
+This reverse proxy is just Nginx, and caching and gzip compression is enabled by default.
+Now we can have nice things.
+To be honest, anyone should route their web applications through a reverse proxy, makes everything easier.
+
+I also did optimizations in the CSS, by using a minifier tool.
+I wrote a bash script that updates the version of the serviceworker (already had that before) and it also executes a minify command on the CSS files to minify them.
+This saves a couple hundred kilobytes.
+It ain't much, but it's honest work, y'know?
+
+I also optimized the Roboto Flex font, since it was almost 2 megabytes.
+This time, it's much less, around 100 kilobytes.
+A big improvement!
+
+Oh and general things like adding TLS is also no biggie with a proper reverse proxy, although it would actually also have been possible with just Rocket.
+But that would mean I would have to program that in, and obtain a certificate and manage it.
+Instead, my Nginx Proxy Manager manages that for me, so I have to do minimal work.
+I like doing as little work as possible, and also this leaves less room for mistakes.
+
+#### Lighthouse
+
+My lighthouse results are frankly sometimes a little unpredictable.
+Sometimes, Chrome seems to think that the largest contentful paint takes absolute ages, in the range of 12-16 seconds, which is just plain wrong.
+
+Here is a more proper result:
+
+![Lighthouse result](docs/lighthouse.png)

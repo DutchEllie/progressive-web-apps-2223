@@ -1,6 +1,6 @@
 // Based on this example by Google
 // https://github.com/GoogleChrome/samples/blob/gh-pages/service-worker/prefetch/service-worker.js
-var CACHE_VERSION = "20230405084210";
+var CACHE_VERSION = "20230406141941";
 var CACHES = {
 	prefetch: 'prefetch-cache-v' + CACHE_VERSION,
 	runtime: 'runtime'
